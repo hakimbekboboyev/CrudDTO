@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class SubjectDto {
-    private String name;
+    private String subjectName;
     private String firstName;
     private String lastName;
     private String category;
