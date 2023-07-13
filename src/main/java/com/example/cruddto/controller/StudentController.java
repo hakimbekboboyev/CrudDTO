@@ -32,6 +32,15 @@ public class StudentController {
             return ResponseEntity.ok(allStudent);
         }
     }
+    @GetMapping("/student/{id}")
+    public ResponseEntity getStudentById(@PathVariable Integer id){
+        Optional<Student> byId = studentRepository.findById(id);
+        if(byId.isPresent()){
+            return ResponseEntity.ok(byId.get());
+        }else {
+            return ResponseEntity.badRequest().body("Student Not Found!");
+        }
+    }
 
     @PostMapping("/student")
     public ResponseEntity addStudent(@RequestBody StudentDto studentDto){
@@ -69,6 +78,17 @@ public class StudentController {
             }
         }else {
             return ResponseEntity.badRequest().body("Group Not Found!");
+        }
+    }
+
+    @DeleteMapping("/student/{id}")
+    public ResponseEntity deleteStudent(@PathVariable Integer id){
+        Optional<Student> byId = studentRepository.findById(id);
+        if(byId.isPresent()){
+            studentRepository.deleteById(id);
+            return ResponseEntity.ok("Student Deleted");
+        }else {
+            return ResponseEntity.badRequest().body("Student Not Found!");
         }
     }
 
