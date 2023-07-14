@@ -6,7 +6,6 @@ import com.example.cruddto.entity.Student;
 import com.example.cruddto.repository.GroupRepository;
 import com.example.cruddto.repository.StudentRepository;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
